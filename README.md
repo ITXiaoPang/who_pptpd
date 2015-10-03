@@ -11,7 +11,7 @@ Client and RemoteIP
 Clone to anywhere:
 
 ``` shell
-git@github.com:ITXiaoPang/who_pptpd.git
+git clone https://github.com/ITXiaoPang/who_pptpd.git
 cd who_pptpd
 ```
 
