@@ -1,0 +1,9 @@
+#!/bin/bash
+localip=$(cat /etc/pptpd.conf|grep localip|grep -v "#"|awk '{print $2}'|awk 'BEGIN{FS="."}{print $1"."$2"."$3"."}')
+IP=$(ifconfig|grep $localip|awk '{print $3}'|awk  'BEGIN{FS=":"} {print $2}'|uniq)
+if [ -z $IP ]
+then
+  echo No User
+else
+  cat /etc/ppp/chap-secrets|grep $IP|awk '{print $1,$4}'
+fi
